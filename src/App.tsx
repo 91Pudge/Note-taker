@@ -9,22 +9,21 @@ import { useLocalStorage } from './useLocalStorage'
 import { v4 as uuidV4} from "uuid" 
 
  export type Note = {
-  id:string 
+  id: string 
 } & NoteData
 
  
 export type NoteData = {
   title: string
-  markdown:string
+  markdown: string
   tags: Tag[]
 }
 export type RawNote = {
   id: string 
-
 } & RawNoteData
 
 export type RawNoteData = {
-  id: string 
+  title: string
   markdown: string
   tagIds: string[]
 }
@@ -39,9 +38,9 @@ function App() {
   const [notes, setNotes] = useLocalStorage<RawNote[]>("NOTES", [])
   const [tags, setTags] = useLocalStorage<Tag[]>("TAGS", []);
 
-  const notesWithTags = useMemo(() =>{
-    return notes.map(note =>{
-      return {...note, tags:tags.filter(tag => note.tagIds.includes(tag.id))}
+  const notesWithTags = useMemo(() => {
+    return notes.map(note => {
+      return { ...note, tags: tags.filter(tag => note.tagIds.includes(tag.id)) }
     })
   }, [notes, tags])
 
@@ -58,7 +57,7 @@ function App() {
   return (
     <Container>
     <Routes>
-      <Route path="/" element={<NoteList availableTags={tags} />}/>
+      <Route path="/" element={<NoteList availableTags={tags} notes={notesWithTags} />}/>
       <Route path="/new" element={<NewNote onSubmit={onCreateNote} onAddTag={addTag} availableTags={tags}/>}/>
       <Route path="*" element={<Navigate to="/"/>}/>
       <Route path="/:id">
