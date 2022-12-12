@@ -1,12 +1,13 @@
 import { useMemo, useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useOutletContext } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import NewNote from './componets/Newnote'
 import NoteList from './componets/NoteList'
 
 import { useLocalStorage } from './useLocalStorage'
 import { v4 as uuidV4} from "uuid" 
+import NoteLayout from './componets/NoteLayout'
 
  export type Note = {
   id: string 
@@ -60,7 +61,7 @@ function App() {
       <Route path="/" element={<NoteList availableTags={tags} notes={notesWithTags} />}/>
       <Route path="/new" element={<NewNote onSubmit={onCreateNote} onAddTag={addTag} availableTags={tags}/>}/>
       <Route path="*" element={<Navigate to="/"/>}/>
-      <Route path="/:id">
+      <Route path="/:id" element={<NoteLayout notes={notesWithTags}/>}>
           <Route index element={<h1>Show</h1>} />
           <Route path="edit" element={<h1>Edit</h1>} />
           <Route path="delete" element={<h1>delete</h1>} />
@@ -72,3 +73,11 @@ function App() {
 }
 
 export default App
+
+ export function useNote() {
+
+
+   return ( useOutletContext<Note> );
+ }
+ 
+
