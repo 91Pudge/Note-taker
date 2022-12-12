@@ -8,6 +8,7 @@ import NoteList from './componets/NoteList'
 import { useLocalStorage } from './useLocalStorage'
 import { v4 as uuidV4} from "uuid" 
 import NoteLayout from './componets/NoteLayout'
+import Note from './componets/Note'
 
  export type Note = {
   id: string 
@@ -62,7 +63,7 @@ function App() {
       <Route path="/new" element={<NewNote onSubmit={onCreateNote} onAddTag={addTag} availableTags={tags}/>}/>
       <Route path="*" element={<Navigate to="/"/>}/>
       <Route path="/:id" element={<NoteLayout notes={notesWithTags}/>}>
-          <Route index element={<h1>Show</h1>} />
+          <Route index element={<Note/>} />
           <Route path="edit" element={<h1>Edit</h1>} />
           <Route path="delete" element={<h1>delete</h1>} />
       </Route>
@@ -74,10 +75,6 @@ function App() {
 
 export default App
 
- export function useNote() {
-
-
-   return ( useOutletContext<Note> );
- }
+ 
  
 
