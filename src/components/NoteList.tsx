@@ -44,7 +44,7 @@ const NoteList = ({ availableTags, notes, onUpdateTag, onDeleteTag }: NoteListPr
     <>
       <Row className='align-items-center mb-4'>
         <Col>
-          <h1>List</h1>
+          <h1> Note List</h1>
           <p>Create/Edit/Delete/Search notes and save in local storage.</p>
         </Col>
         <Col xs='auto'>
