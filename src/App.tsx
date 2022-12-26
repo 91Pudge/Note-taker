@@ -2,14 +2,15 @@ import { useMemo, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Navigate, Route, Routes, useOutletContext } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
-import NewNote from './componets/Newnote'
-import NoteList from './componets/NoteList'
+import NewNote from './components/Newnote'
+
+import NoteList from './components/NoteList'
 
 import { useLocalStorage } from './useLocalStorage'
 import { v4 as uuidV4 } from 'uuid'
-import NoteLayout from './componets/NoteLayout'
-import Note from './componets/Note'
-import EditNote from './componets/EditNote'
+import NoteLayout from './components/NoteLayout'
+import Note from './components/Note'
+import EditNote from './components/EditNote'
 
 export type Note = {
   id: string

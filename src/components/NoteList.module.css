@@ -1,3 +1,14 @@
+body {
+  background-color: rgb(86, 84, 84);
+}
+h1 {
+  color: white;
+}
+p {
+  width: 150px;
+  color: white;
+}
+
 .card {
   transition: translate ease-in-out 100ms, box-shadow ease-in-out 100ms;
 }

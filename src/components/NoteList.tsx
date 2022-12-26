@@ -45,13 +45,14 @@ const NoteList = ({ availableTags, notes, onUpdateTag, onDeleteTag }: NoteListPr
       <Row className='align-items-center mb-4'>
         <Col>
           <h1>List</h1>
+          <p>Create/Edit/Delete/Search notes and save in local storage.</p>
         </Col>
         <Col xs='auto'>
           <Stack gap={2} direction='horizontal'>
             <Link to='/new'>
               <Button variant='primary'>Create</Button>
             </Link>
-            <Button onClick={() => setEditTagsModalIsOpen(true)} variant='outline-secondary'>
+            <Button onClick={() => setEditTagsModalIsOpen(true)} variant='btn btn-dark'>
               Edit
             </Button>
           </Stack>

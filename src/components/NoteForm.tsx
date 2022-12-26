@@ -87,7 +87,7 @@ const NoteForm = ({
               Save
             </Button>
             <Link to='..'>
-              <Button type='button' variant='outline-secondary'>
+              <Button type='button' variant='btn btn-warning'>
                 Cancel
               </Button>
             </Link>

@@ -40,7 +40,7 @@ const Note = ({ onDelete }: NoteProps) => {
               Delete
             </Button>
             <Link to='..'>
-              <Button variant='outline-'>Back</Button>
+              <Button variant='btn btn-success'>Back</Button>
             </Link>
           </Stack>
         </Col>
